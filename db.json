@@ -17,6 +17,12 @@
       "day": "asdgasdg",
       "reminder": false,
       "id": 3
+    },
+    {
+      "text": "asdfadsf",
+      "day": "asdfadsgh",
+      "reminder": true,
+      "id": 4
     }
   ]
 }

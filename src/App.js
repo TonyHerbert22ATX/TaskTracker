@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
@@ -111,28 +111,33 @@ const toggleReminder = async (id) => {
     )
   }
 
+  return (
+    <Router>
+    <div className="container">
+    <Header onAdd={()=>setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+    <Routes>
+    <Route path='/' element={<>
+        {showAddTask && <AddTask onAdd={addTask} />}
+        {tasks.length > 0 ?(<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> ):( 'No Tasks To Show')}
+      </>}
+    />
+    <Route path='/about' element={<About />} />
+    </Routes>
+    <Footer />
+    </div>
+    </Router>
+  );
+}
+
 //   return (
-//     <Router>
 //     <div className="container">
 //     <Header onAdd={()=>setShowAddTask(!showAddTask)} showAdd={showAddTask} />
 //     {showAddTask && <AddTask onAdd={addTask} />}
 //     {tasks.length > 0 ?<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks To Show'}
-//     <Route path='/about' component={About} />
 //     <Footer />
 //     </div>
-//     </Router>
 //   );
 // }
-
-  return (
-    <div className="container">
-    <Header onAdd={()=>setShowAddTask(!showAddTask)} showAdd={showAddTask} />
-    {showAddTask && <AddTask onAdd={addTask} />}
-    {tasks.length > 0 ?<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks To Show'}
-    <Footer />
-    </div>
-  );
-}
 
 // ? This is how to do a class component 
 // import React from 'react'
