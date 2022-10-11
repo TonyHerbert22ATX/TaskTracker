@@ -11,6 +11,12 @@
       "day": "Tueaday",
       "reminder": false,
       "id": 2
+    },
+    {
+      "text": "asdgasdg",
+      "day": "asdgasdg",
+      "reminder": false,
+      "id": 3
     }
   ]
 }
