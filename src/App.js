@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Header from './componets/Header'
-import Tasks from './componets/Tasks'
-import AddTask from './componets/AddTask'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Tasks from './components/Tasks'
+import AddTask from './components/AddTask'
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -113,6 +114,7 @@ const toggleReminder = async (id) => {
     <Header onAdd={()=>setShowAddTask(!showAddTask)} showAdd={showAddTask} />
     {showAddTask && <AddTask onAdd={addTask} />}
     {tasks.length > 0 ?<Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks To Show'}
+    <Footer />
     </div>
 
   );
